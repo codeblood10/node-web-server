@@ -38,7 +38,7 @@ app.get("/",(req,res) => {
     res.render('home.hbs',{
       title:"home page" ,
       msg :"hey bud u wanna get some ",
-
+     port : port,
     });
  });
  app.get("/about",(req,res)=>
