@@ -7,9 +7,9 @@ var fs = require('fs');
 const port = process.env.PORT || 3000;
 
 hbs.registerPartials(__dirname+'/views/partials');
-app.set("view engine" ,"hbs");
+app.set("view engine" ,"hbs"); // setting hadle bars view engine 
 
-app.use((req,res,next)=>
+app.use((req,res,next)=>    // use to make middleware
 { var now = new Date().toString();
   var log = `${now}:${req.method},${req.url}`;
   console.log(log);
@@ -24,7 +24,7 @@ app.use((req,res,next)=>
   //res.render("maintenance.hbs");
 
 //}); this is use to say that site is at maintenance
-app.use(express.static(__dirname+'/public')); // maintenance was override du to this
+app.use(express.static(__dirname+'/public')); // maintenance was override du to this //place for static url
 hbs.registerHelper("x",()=>{
   return new Date().getFullYear();
 });
@@ -34,7 +34,9 @@ hbs.registerHelper("screamit",(text) =>{
 });
 
 app.get("/",(req,res) => {
-    // res.send("</h1> world</h1>");
+    // res.send("</h1> world</h1>"); to send some data
+    // can also ssend a json object
+
     res.render('home.hbs',{
       title:"home page" ,
       msg :"hey bud u wanna get some ",
