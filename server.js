@@ -7,7 +7,7 @@ var fs = require('fs');
 const port = process.env.PORT || 3000;
 
 hbs.registerPartials(__dirname+'/views/partials');
-app.set("view engine" ,"hbs"); // setting hadle bars view engine 
+app.set("view engine" ,"hbs"); // setting hadle bars view engine
 
 app.use((req,res,next)=>    // use to make middleware
 { var now = new Date().toString();
@@ -49,6 +49,9 @@ app.get("/",(req,res) => {
   pagetitle:"aboutpage",
 
   });
+ });
+ app.get("/projects",(req,res)=>{
+   res.render('projects.hbs',{pagetitle:"portfolio"});
  });
  app.get("/bad" ,(req,res)=>
 {
